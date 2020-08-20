@@ -3,7 +3,7 @@ import React from "react";
 const ToDoList = (props) => {
   return (
     <ul>
-      <li>ToDoList</li>
+      <li>feed the cat</li>
     </ul>
   );
 };

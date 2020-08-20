@@ -3,7 +3,7 @@ import React from "react";
 const CompletedList = (props) => {
   return (
     <ul>
-      <li>CompletedList</li>
+      <li>this task has been completed</li>
     </ul>
   );
 };
