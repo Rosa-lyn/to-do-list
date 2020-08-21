@@ -4,16 +4,17 @@ class TaskAdder extends React.Component {
   state = { task: "" };
   handleChange = (changeEvent) => {
     const task = changeEvent.target.value;
-    console.log(task);
+    // console.log(task);
     this.setState((currentState) => {
       return { task };
     });
   };
   handleSubmit = (submitEvent) => {
     submitEvent.preventDefault();
+    // console.dir(submitEvent);
     const newTask = { ...this.state };
+    // console.log(newTask);
     this.props.addTask(newTask);
-    // console.log(task);
   };
   render = () => {
     return (
@@ -28,7 +29,7 @@ class TaskAdder extends React.Component {
         </label>
 
         <label>
-          <button>add</button>
+          <button type="submit">add</button>
         </label>
       </form>
     );

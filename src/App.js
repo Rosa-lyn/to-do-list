@@ -5,13 +5,16 @@ import ToDoList from "./components/ToDoList";
 import CompletedList from "./components/CompletedList";
 
 class App extends React.Component {
-  state = { toDoList: [] };
+  state = {
+    toDoList: [
+      // {task: "feed fish"},
+      // {task: "water plants"}
+    ],
+  };
   addTask = (newTask) => {
     this.setState((currentState) => {
-      // console.dir([newTask, ...currentState.toDoList);
       return { toDoList: [newTask, ...currentState.toDoList] };
     });
-    console.dir(this.state);
   };
   render = () => {
     return (
@@ -21,7 +24,7 @@ class App extends React.Component {
         </header>
         <main>
           <TaskAdder addTask={this.addTask} />
-          <ToDoList />
+          <ToDoList toDoList={this.state.toDoList} />
           <h2>Completed</h2>
           <CompletedList />
         </main>

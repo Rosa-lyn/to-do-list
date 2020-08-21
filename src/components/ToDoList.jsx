@@ -3,7 +3,9 @@ import React from "react";
 const ToDoList = (props) => {
   return (
     <ul>
-      <li>feed the cat</li>
+      {props.toDoList.map((task) => {
+        return <li key={task.task}>{task.task}</li>;
+      })}
     </ul>
   );
 };
