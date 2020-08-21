@@ -13,8 +13,7 @@ class TaskAdder extends React.Component {
     submitEvent.preventDefault();
     // console.dir(submitEvent);
     const newTask = { ...this.state };
-    // console.log(newTask);
-    this.props.addTask(newTask);
+    if (newTask.task.length > 0) this.props.addTask(newTask);
   };
   render = () => {
     return (
