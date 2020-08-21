@@ -28,8 +28,12 @@ form {
 }
 .to-do-list {
   list-style: none;
+  padding: 10px;
+  margin: 0;
 }
 .completed-list {
   list-style: none;
   color: #cdcdcd;
+  padding: 10px;
+  margin: 0;
 }
