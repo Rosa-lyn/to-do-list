@@ -5,21 +5,15 @@ import ToDoList from "./components/ToDoList";
 
 class App extends React.Component {
   state = {
-    toDoList: [
-      // {task: "feed fish"},
-      // {task: "water plants"}
-    ],
-    completedList: [
-      // {task: "take bins out"},
-      // {task: "clean kitchen"}
-    ],
+    toDoList: [],
+    completedList: [],
   };
   addTask = (newTask) => {
     this.setState((currentState) => {
       return { toDoList: [newTask, ...currentState.toDoList] };
     });
   };
-  removeTask = (task) => {
+  markTaskComplete = (task) => {
     const taskToRemove = task.task;
     this.setState((currentState) => {
       const toDoListCopy = currentState.toDoList.filter((task) => {
@@ -31,6 +25,18 @@ class App extends React.Component {
       };
     });
   };
+  reAddTask = (task) => {
+    const taskToReAdd = task.task;
+    this.setState((currentState) => {
+      const completedListCopy = currentState.completedList.filter((task) => {
+        return task.task !== taskToReAdd;
+      });
+      return {
+        toDoList: [task, ...currentState.toDoList],
+        completedList: completedListCopy,
+      };
+    });
+  };
   render = () => {
     return (
       <div className="App">
@@ -38,11 +44,15 @@ class App extends React.Component {
           <h1>get it done!</h1>
         </header>
         <main>
-          <TaskAdder addTask={this.addTask} removeTask={this.removeTask} />
+          <TaskAdder
+            addTask={this.addTask}
+            markTaskComplete={this.markTaskComplete}
+          />
           <ToDoList
             toDoList={this.state.toDoList}
             completedList={this.state.completedList}
-            removeTask={this.removeTask}
+            markTaskComplete={this.markTaskComplete}
+            reAddTask={this.reAddTask}
           />
         </main>
       </div>

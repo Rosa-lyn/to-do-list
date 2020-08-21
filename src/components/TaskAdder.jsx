@@ -4,16 +4,17 @@ class TaskAdder extends React.Component {
   state = { task: "" };
   handleChange = (changeEvent) => {
     const task = changeEvent.target.value;
-    // console.log(task);
-    this.setState((currentState) => {
+    this.setState(() => {
       return { task };
     });
   };
   handleSubmit = (submitEvent) => {
     submitEvent.preventDefault();
-    // console.dir(submitEvent);
     const newTask = { ...this.state };
     if (newTask.task.length > 0) this.props.addTask(newTask);
+    this.setState(() => {
+      return { task: "" };
+    });
   };
   render = () => {
     return (
