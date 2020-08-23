@@ -1,11 +1,12 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: "Alata", sans-serif;
 }
 header {
-  /* background-color: #cdf4e0; */
-  /* padding: 2px; */
-  /* color: white; */
+  align-self: stretch;
+  text-align: center;
 }
 h1 {
   margin: 0px;
@@ -13,18 +14,22 @@ h1 {
   background-color: #cdf4e0;
   color: black;
 }
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 form {
   margin: 40px;
 }
 .lists {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 100vh;
+  width: 320px;
+  text-align: left;
+  min-height: 75vh;
+  padding: 20px;
+  margin-bottom: 40px;
   border: solid 1px #cdcdcd;
   border-radius: 10px;
-  margin: 40px;
-  padding: 10px;
 }
 .to-do-list {
   list-style: none;
